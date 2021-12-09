@@ -9,13 +9,38 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    private lazy var settingsTableView = UITableView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBlue
+        setupHierarchy()
+        setupLayout()
+        setupView()
+
+        setUpNavigation()
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - Settings
+    private func setupHierarchy() {
+        view.addSubview(settingsTableView)
+    }
+
+    private func setupLayout() {
+        settingsTableView.addConstraints(top: view.topAnchor, left: view.leadingAnchor, paddingLeft: 20, right: view.trailingAnchor, paddingRight: 20, bottom: view.bottomAnchor)
+    }
+
+    private func setupView() {
+        view.backgroundColor = .secondarySystemBackground | .systemBackground
+    }
+
+    // MARK: - Private functions
+
+    private func setUpNavigation() {
+        navigationItem.title = "Настройки"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
 
     /*
     // MARK: - Navigation

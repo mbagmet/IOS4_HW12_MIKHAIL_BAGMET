@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = SettingsViewController()
         window?.makeKeyAndVisible()
 
+        window?.rootViewController = UINavigationController(rootViewController: SettingsViewController())
+
         return true
     }
 }

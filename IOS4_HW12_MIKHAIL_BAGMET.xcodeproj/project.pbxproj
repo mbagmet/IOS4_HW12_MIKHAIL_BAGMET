@@ -13,6 +13,8 @@
 		798CAE0627626A6D00DFC96E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 798CAE0527626A6D00DFC96E /* Assets.xcassets */; };
 		798CAE0927626A6D00DFC96E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798CAE0727626A6D00DFC96E /* LaunchScreen.storyboard */; };
 		798CAE112762860900DFC96E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE102762860900DFC96E /* SettingsViewController.swift */; };
+		798CAE142762901800DFC96E /* extensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE132762901800DFC96E /* extensionUIColor.swift */; };
+		798CAE162762924100DFC96E /* extensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE152762924100DFC96E /* extensionUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		798CAE0827626A6D00DFC96E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		798CAE0A27626A6D00DFC96E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		798CAE102762860900DFC96E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		798CAE132762901800DFC96E /* extensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIColor.swift; sourceTree = "<group>"; };
+		798CAE152762924100DFC96E /* extensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		798CADFB27626A6A00DFC96E /* IOS4_HW12_MIKHAIL_BAGMET */ = {
 			isa = PBXGroup;
 			children = (
+				798CAE1227628F8A00DFC96E /* Extensions */,
 				798CADFC27626A6A00DFC96E /* AppDelegate.swift */,
 				798CAE0027626A6A00DFC96E /* ViewController.swift */,
 				798CAE0227626A6A00DFC96E /* Main.storyboard */,
@@ -65,6 +70,15 @@
 				798CAE102762860900DFC96E /* SettingsViewController.swift */,
 			);
 			path = IOS4_HW12_MIKHAIL_BAGMET;
+			sourceTree = "<group>";
+		};
+		798CAE1227628F8A00DFC96E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				798CAE132762901800DFC96E /* extensionUIColor.swift */,
+				798CAE152762924100DFC96E /* extensionUIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				798CAE142762901800DFC96E /* extensionUIColor.swift in Sources */,
 				798CAE0127626A6A00DFC96E /* ViewController.swift in Sources */,
+				798CAE162762924100DFC96E /* extensionUIView.swift in Sources */,
 				798CADFD27626A6A00DFC96E /* AppDelegate.swift in Sources */,
 				798CAE112762860900DFC96E /* SettingsViewController.swift in Sources */,
 			);
