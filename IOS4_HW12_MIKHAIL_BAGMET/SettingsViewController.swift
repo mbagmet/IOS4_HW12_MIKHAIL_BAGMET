@@ -9,7 +9,14 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    private lazy var settingsTableView = UITableView()
+    private lazy var settings = SettingsData.getSettingsList()
+
+    private lazy var settingsTableView = UITableView(frame: view.bounds, style: UITableView.Style.insetGrouped)
+
+//    private lazy var nameLabel: UILabel = {
+//        let label = UILabel()
+//        return label
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +26,8 @@ class SettingsViewController: UIViewController {
         setupView()
 
         setUpNavigation()
+
+        setupDataSource()
         // Do any additional setup after loading the view.
     }
     
@@ -28,11 +37,16 @@ class SettingsViewController: UIViewController {
     }
 
     private func setupLayout() {
-        settingsTableView.addConstraints(top: view.topAnchor, left: view.leadingAnchor, paddingLeft: 20, right: view.trailingAnchor, paddingRight: 20, bottom: view.bottomAnchor)
+        settingsTableView.addConstraints(top: view.topAnchor, left: view.leadingAnchor, paddingLeft: 0, right: view.trailingAnchor, paddingRight: 0, bottom: view.bottomAnchor)
     }
 
     private func setupView() {
         view.backgroundColor = .secondarySystemBackground | .systemBackground
+    }
+
+    private func setupDataSource() {
+        settingsTableView.dataSource = self
+        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "settingsCell")
     }
 
     // MARK: - Private functions
@@ -51,5 +65,37 @@ class SettingsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+// MARK: - Расширение, чтобы рассказать таблице, откуда брать данные
+// Работает в паре с setupDataSource()
+extension SettingsViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        //print("Количество групп: \(settings.count)")
+        return settings.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //print("Количество строк в группе: \(settings[section].count)")
+        return settings[section].count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
+
+        print("\(#function) --- section = \(indexPath.section), row = \(indexPath.row)")
+        cell.textLabel?.text = settings[indexPath.section][indexPath.row].name
+        cell.accessoryType = .disclosureIndicator
+        cell.detailTextLabel?.text = settings[indexPath.section][indexPath.row].description
+        let onOfSwitch = UISwitch()
+        if indexPath.section == 1 && indexPath.row == 0 {
+            cell.accessoryView = onOfSwitch
+        }
+
+        return cell
+    }
+
 
 }

@@ -13,6 +13,7 @@
 		798CAE112762860900DFC96E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE102762860900DFC96E /* SettingsViewController.swift */; };
 		798CAE142762901800DFC96E /* extensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE132762901800DFC96E /* extensionUIColor.swift */; };
 		798CAE162762924100DFC96E /* extensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE152762924100DFC96E /* extensionUIView.swift */; };
+		798CAE182762A31800DFC96E /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE172762A31800DFC96E /* SettingsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		798CAE102762860900DFC96E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		798CAE132762901800DFC96E /* extensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIColor.swift; sourceTree = "<group>"; };
 		798CAE152762924100DFC96E /* extensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIView.swift; sourceTree = "<group>"; };
+		798CAE172762A31800DFC96E /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				798CAE0727626A6D00DFC96E /* LaunchScreen.storyboard */,
 				798CAE0A27626A6D00DFC96E /* Info.plist */,
 				798CAE102762860900DFC96E /* SettingsViewController.swift */,
+				798CAE172762A31800DFC96E /* SettingsData.swift */,
 			);
 			path = IOS4_HW12_MIKHAIL_BAGMET;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			files = (
 				798CAE142762901800DFC96E /* extensionUIColor.swift in Sources */,
 				798CAE162762924100DFC96E /* extensionUIView.swift in Sources */,
+				798CAE182762A31800DFC96E /* SettingsData.swift in Sources */,
 				798CADFD27626A6A00DFC96E /* AppDelegate.swift in Sources */,
 				798CAE112762860900DFC96E /* SettingsViewController.swift in Sources */,
 			);
