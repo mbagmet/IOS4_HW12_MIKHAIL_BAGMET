@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-вай-фай-30.png",
+      "filename" : "icons8-вай-фай-30.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-вай-фай-60.png",
+      "filename" : "icons8-вай-фай-60.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-вай-фай-90.png",
+      "filename" : "icons8-вай-фай-90.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
