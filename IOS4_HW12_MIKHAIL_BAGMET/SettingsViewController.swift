@@ -28,7 +28,6 @@ class SettingsViewController: UIViewController {
         setUpNavigation()
 
         setupDataSource()
-        // Do any additional setup after loading the view.
     }
     
     // MARK: - Settings
@@ -87,11 +86,14 @@ extension SettingsViewController: UITableViewDataSource {
 
         print("\(#function) --- section = \(indexPath.section), row = \(indexPath.row)")
         cell.textLabel?.text = settings[indexPath.section][indexPath.row].name
+        cell.imageView?.image = settings[indexPath.section][indexPath.row].icon
         cell.accessoryType = .disclosureIndicator
         cell.detailTextLabel?.text = settings[indexPath.section][indexPath.row].description
         let onOfSwitch = UISwitch()
         if indexPath.section == 1 && indexPath.row == 0 {
             cell.accessoryView = onOfSwitch
+        } else {
+            cell.accessoryView = .none
         }
 
         return cell

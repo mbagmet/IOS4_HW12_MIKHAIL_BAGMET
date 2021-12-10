@@ -21,9 +21,9 @@ class SettingsData {
                 Settings(name: "Михаил Багмет", icon: nil, badge: nil, description: "Apple ID, iCloud, контент и покупки")
             ],
             [
-                Settings(name: "Авиарежим", icon: nil, badge: nil, description: nil),
-                Settings(name: "Wi-Fi", icon: nil, badge: nil, description: "Не подключено"),
-                Settings(name: "Bluetooth", icon: nil, badge: nil, description: "Вкл."),
+                Settings(name: "Авиарежим", icon: UIImage(named: "airplane_mode"), badge: nil, description: nil),
+                Settings(name: "Wi-Fi", icon: UIImage(named: "wi-fi"), badge: nil, description: "Не подключено"),
+                Settings(name: "Bluetooth", icon: UIImage(named: "bluetooth"), badge: nil, description: "Вкл."),
                 Settings(name: "Сотовая связь", icon: nil, badge: 1, description: nil),
                 Settings(name: "Режим модема", icon: nil, badge: nil, description: "Выкл."),
                 Settings(name: "VPN", icon: nil, badge: nil, description: "Не подключено")
@@ -35,7 +35,7 @@ class SettingsData {
                 Settings(name: "Экранное время", icon: nil, badge: nil, description: nil),
             ],
             [
-                Settings(name: "Основные", icon: nil, badge: 1, description: nil),
+                Settings(name: "Основные", icon: UIImage(named: "settings-1"), badge: 1, description: nil),
                 Settings(name: "Пункт управления", icon: nil, badge: nil, description: nil),
                 Settings(name: "Экран и яркость", icon: nil, badge: nil, description: nil),
                 Settings(name: "Экран Домой", icon: nil, badge: nil, description: nil),
