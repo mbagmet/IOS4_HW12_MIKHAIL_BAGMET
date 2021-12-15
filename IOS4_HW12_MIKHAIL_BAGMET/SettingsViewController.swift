@@ -13,11 +13,6 @@ class SettingsViewController: UIViewController {
 
     private lazy var settingsTableView = UITableView(frame: view.bounds, style: UITableView.Style.insetGrouped)
 
-//    private lazy var nameLabel: UILabel = {
-//        let label = UILabel()
-//        return label
-//    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,11 +23,14 @@ class SettingsViewController: UIViewController {
         setUpNavigation()
 
         setupDataSource()
+        setupDelegate()
+        setupTableCells()
     }
     
     // MARK: - Settings
     private func setupHierarchy() {
         view.addSubview(settingsTableView)
+
     }
 
     private func setupLayout() {
@@ -45,7 +43,16 @@ class SettingsViewController: UIViewController {
 
     private func setupDataSource() {
         settingsTableView.dataSource = self
-        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "settingsCell")
+    }
+
+    private func setupDelegate() {
+        settingsTableView.delegate = self
+    }
+
+    private func setupTableCells() {
+        settingsTableView.register(DefaultTableViewCell.self, forCellReuseIdentifier: DefaultTableViewCell.identifier)
+        settingsTableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
+        settingsTableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
     }
 
     // MARK: - Private functions
@@ -82,22 +89,52 @@ extension SettingsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
 
-        print("\(#function) --- section = \(indexPath.section), row = \(indexPath.row)")
-        cell.textLabel?.text = settings[indexPath.section][indexPath.row].name
-        cell.imageView?.image = settings[indexPath.section][indexPath.row].icon
-        cell.accessoryType = .disclosureIndicator
-        cell.detailTextLabel?.text = settings[indexPath.section][indexPath.row].description
-        let onOfSwitch = UISwitch()
-        if indexPath.section == 1 && indexPath.row == 0 {
+        switch settings[indexPath.section][indexPath.row].type {
+        case .profile:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as! ProfileTableViewCell
+
+            cell.textLabel?.text = settings[indexPath.section][indexPath.row].name
+            cell.imageView?.image = settings[indexPath.section][indexPath.row].icon
+            cell.detailTextLabel?.text = settings[indexPath.section][indexPath.row].description
+            cell.accessoryType = .disclosureIndicator
+
+            return cell
+
+        case .withSwitch:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as! SwitchTableViewCell
+
+            cell.textLabel?.text = settings[indexPath.section][indexPath.row].name
+            cell.imageView?.image = settings[indexPath.section][indexPath.row].icon
+            cell.detailTextLabel?.text = settings[indexPath.section][indexPath.row].description
+
+            let onOfSwitch = UISwitch()
             cell.accessoryView = onOfSwitch
-        } else {
-            cell.accessoryView = .none
+
+            return cell
+
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DefaultTableViewCell.identifier, for: indexPath) as! DefaultTableViewCell
+
+            cell.textLabel?.text = settings[indexPath.section][indexPath.row].name
+            cell.imageView?.image = settings[indexPath.section][indexPath.row].icon
+            cell.detailTextLabel?.text = settings[indexPath.section][indexPath.row].description
+            cell.accessoryType = .disclosureIndicator
+
+            return cell
         }
-
-        return cell
     }
+}
 
-
+// MARK: - Расширение для увеличения высоты рядов
+// Работает в паре с setupDelegate()
+extension SettingsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if settings[indexPath.section][indexPath.row].type == .profile {
+            return 72
+        }
+        // Use the default size for all other rows.
+        return UITableView.automaticDimension
+    }
 }

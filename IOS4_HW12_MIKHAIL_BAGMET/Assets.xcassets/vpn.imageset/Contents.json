@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "icons8_значок_строки_состояния_vpn_90_2-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "icons8_значок_строки_состояния_vpn_90_2-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "icons8_значок_строки_состояния_vpn_90_2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
