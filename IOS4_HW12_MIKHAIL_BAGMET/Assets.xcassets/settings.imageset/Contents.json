@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-настройки-30.png",
+      "filename" : "settings.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-настройки-60.png",
+      "filename" : "settings60.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-настройки-90.png",
+      "filename" : "settings90.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

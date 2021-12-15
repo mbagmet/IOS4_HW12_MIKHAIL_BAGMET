@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-исторический-30.png",
+      "filename" : "hourglass.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-исторический-60.png",
+      "filename" : "hourglass60.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-исторический-90.png",
+      "filename" : "hourglass90.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

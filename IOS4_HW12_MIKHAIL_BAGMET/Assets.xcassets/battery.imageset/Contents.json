@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-полный-заряд-30.png",
+      "filename" : "battery.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-полный-заряд-60.png",
+      "filename" : "battery60.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-полный-заряд-90.png",
+      "filename" : "battery90.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
