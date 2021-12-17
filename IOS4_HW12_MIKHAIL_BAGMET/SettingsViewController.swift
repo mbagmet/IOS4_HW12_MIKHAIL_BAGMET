@@ -13,6 +13,8 @@ class SettingsViewController: UIViewController {
 
     private lazy var settingsTableView = UITableView(frame: view.bounds, style: UITableView.Style.insetGrouped)
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +22,7 @@ class SettingsViewController: UIViewController {
         setupLayout()
         setupView()
 
-        setUpNavigation()
+        setupNavigation()
 
         setupDataSource()
         setupDelegate()
@@ -30,7 +32,6 @@ class SettingsViewController: UIViewController {
     // MARK: - Settings
     private func setupHierarchy() {
         view.addSubview(settingsTableView)
-
     }
 
     private func setupLayout() {
@@ -57,7 +58,7 @@ class SettingsViewController: UIViewController {
 
     // MARK: - Private functions
 
-    private func setUpNavigation() {
+    private func setupNavigation() {
         navigationItem.title = "Настройки"
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -113,9 +114,11 @@ extension SettingsViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Расширение для увеличения высоты рядов
+// MARK: - Расширение для увеличения высоты рядов, а также для реагирования на нажатия
 // Работает в паре с setupDelegate()
+
 extension SettingsViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if settings[indexPath.section][indexPath.row].type == .profile {
@@ -123,5 +126,21 @@ extension SettingsViewController: UITableViewDelegate {
         }
         // Use the default size for all other rows.
         return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        CurrentCell.name = settings[indexPath.section][indexPath.row].name ?? "<не определена>"
+
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("Нажата ячейка \(CurrentCell.name)")
+
+        navigationController?.pushViewController(SettingsChildViewController(), animated: true)
+    }
+}
+
+// MARK: - Current Cell
+extension SettingsViewController {
+    enum CurrentCell {
+        static var name: String = ""
     }
 }

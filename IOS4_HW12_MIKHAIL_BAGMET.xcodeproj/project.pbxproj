@@ -10,6 +10,7 @@
 		796D0C5B2763B99F00712C13 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D0C5A2763B99F00712C13 /* ProfileTableViewCell.swift */; };
 		796D0C5D2763BA4400712C13 /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D0C5C2763BA4400712C13 /* DefaultTableViewCell.swift */; };
 		796D0C5F2763BA5800712C13 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D0C5E2763BA5800712C13 /* SwitchTableViewCell.swift */; };
+		797E865D276D30C200C16990 /* SettingsChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797E865C276D30C200C16990 /* SettingsChildViewController.swift */; };
 		798CADFD27626A6A00DFC96E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CADFC27626A6A00DFC96E /* AppDelegate.swift */; };
 		798CAE0627626A6D00DFC96E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 798CAE0527626A6D00DFC96E /* Assets.xcassets */; };
 		798CAE0927626A6D00DFC96E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798CAE0727626A6D00DFC96E /* LaunchScreen.storyboard */; };
@@ -23,6 +24,7 @@
 		796D0C5A2763B99F00712C13 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		796D0C5C2763BA4400712C13 /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
 		796D0C5E2763BA5800712C13 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		797E865C276D30C200C16990 /* SettingsChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsChildViewController.swift; sourceTree = "<group>"; };
 		798CADF927626A6A00DFC96E /* IOS4_HW12_MIKHAIL_BAGMET.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS4_HW12_MIKHAIL_BAGMET.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		798CADFC27626A6A00DFC96E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		798CAE0527626A6D00DFC96E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				798CAE0A27626A6D00DFC96E /* Info.plist */,
 				798CAE102762860900DFC96E /* SettingsViewController.swift */,
 				798CAE172762A31800DFC96E /* SettingsData.swift */,
+				797E865C276D30C200C16990 /* SettingsChildViewController.swift */,
 			);
 			path = IOS4_HW12_MIKHAIL_BAGMET;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				798CAE162762924100DFC96E /* extensionUIView.swift in Sources */,
 				798CAE182762A31800DFC96E /* SettingsData.swift in Sources */,
 				796D0C5B2763B99F00712C13 /* ProfileTableViewCell.swift in Sources */,
+				797E865D276D30C200C16990 /* SettingsChildViewController.swift in Sources */,
 				798CADFD27626A6A00DFC96E /* AppDelegate.swift in Sources */,
 				798CAE112762860900DFC96E /* SettingsViewController.swift in Sources */,
 				796D0C5D2763BA4400712C13 /* DefaultTableViewCell.swift in Sources */,
