@@ -7,10 +7,10 @@
 
 import UIKit
 
-enum CellType {
+enum CellType: Equatable {
     case profile
     case byDefault
-    case withSwitch
+    case withSwitch(isOn: Bool)
     case withBadge
 }
 
@@ -22,17 +22,16 @@ struct Settings {
     let type: CellType?
 }
 
-let configuration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 60, weight: .ultraLight))
-
 class SettingsData {
     static func getSettingsList() -> [[Settings]] {
         let settings = [
             [
-                Settings(name: "Михаил Багмет", icon: UIImage(systemName: "person.crop.circle.fill", withConfiguration: configuration), badge: nil,
-                         description: "Apple ID, iCloud, контент и покупки", type: .profile)
+                Settings(name: "Михаил Багмет",
+                         icon: UIImage(systemName: "person.crop.circle.fill", withConfiguration: ProfileTableViewCell.Metric.iconConfiguration),
+                         badge: nil, description: "Apple ID, iCloud, контент и покупки", type: .profile)
             ],
             [
-                Settings(name: "Авиарежим", icon: UIImage(named: "airplane_mode"), badge: nil, description: nil, type: .withSwitch),
+                Settings(name: "Авиарежим", icon: UIImage(named: "airplane_mode"), badge: nil, description: nil, type: .withSwitch(isOn: false)),
                 Settings(name: "Wi-Fi", icon: UIImage(named: "wifi"), badge: nil, description: "Не подключено", type: .byDefault),
                 Settings(name: "Bluetooth", icon: UIImage(named: "bluetooth"), badge: nil, description: "Вкл.", type: .byDefault), 
                 Settings(name: "Сотовая связь", icon: UIImage(named: "cellular"), badge: nil, description: nil, type: .byDefault),
@@ -41,7 +40,7 @@ class SettingsData {
             ],
             [
                 Settings(name: "Уведомления", icon: UIImage(named: "notifications"), badge: nil, description: nil, type: .byDefault),
-                Settings(name: "Звуки, тактильные сигналы", icon: UIImage(named: "speaker"), badge: "12", description: nil, type: .withBadge),
+                Settings(name: "Звуки, тактильные сигналы", icon: UIImage(named: "speaker"), badge: "32", description: nil, type: .withBadge),
                 Settings(name: "Фокусирование", icon: UIImage(named: "moon"), badge: nil, description: nil, type: .byDefault),
                 Settings(name: "Экранное время", icon: UIImage(named: "hourglass"), badge: nil, description: nil, type: .byDefault),
             ],
@@ -60,10 +59,9 @@ class SettingsData {
                 Settings(name: "Конфиденциальность", icon: UIImage(named: "hand"), badge: nil, description: nil, type: .byDefault)
             ],
             [
-                Settings(name: "App Store", icon: UIImage(named: "appstore"), badge: nil, description: nil, type: .byDefault),
+                Settings(name: "App Store", icon: UIImage(named: "appstore"), badge: "12", description: nil, type: .withBadge),
                 Settings(name: "Wallet и Apple Pay", icon: UIImage(named: "wallet"), badge: nil, description: nil, type: .byDefault)
             ]
-
         ]
 
         return settings

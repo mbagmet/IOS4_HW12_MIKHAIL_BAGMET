@@ -9,14 +9,14 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    private lazy var settings = SettingsData.getSettingsList()
+    private lazy var settingsModels = SettingsData.getSettingsList()
 
     private lazy var settingsTableView = UITableView(frame: view.bounds, style: UITableView.Style.insetGrouped)
 
     private lazy var searchController: UISearchController = {
         var searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Поиск"
+        searchController.searchBar.placeholder = Strings.searchBarPlaceholder
 
         return searchController
     }()
@@ -45,7 +45,8 @@ class SettingsViewController: UIViewController {
     }
 
     private func setupLayout() {
-        settingsTableView.addConstraints(top: view.topAnchor, left: view.leadingAnchor, paddingLeft: 0, right: view.trailingAnchor, paddingRight: 0, bottom: view.bottomAnchor)
+        settingsTableView.addConstraints(top: view.topAnchor, left: view.leadingAnchor, paddingLeft: Metric.sidePadding,
+                                         right: view.trailingAnchor, paddingRight: Metric.sidePadding, bottom: view.bottomAnchor)
     }
 
     private func setupView() {
@@ -75,98 +76,99 @@ class SettingsViewController: UIViewController {
     // MARK: - Private functions
 
     private func setupNavigation() {
-        navigationItem.title = "Настройки"
+        navigationItem.title = Strings.navigationTitle
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
-// MARK: - Расширение, чтобы рассказать таблице, откуда брать данные
+// MARK: - Data source, модель ячейки
 // Работает в паре с setupDataSource()
+
 extension SettingsViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return settings.count
+        return settingsModels.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settings[section].count
+        return settingsModels[section].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        switch settings[indexPath.section][indexPath.row].type {
+        let model = settingsModels[indexPath.section][indexPath.row]
+
+        switch model.type {
         case .profile:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as! ProfileTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell else {
+                return UITableViewCell()
+            }
 
-            cell.textLabel?.text = settings[indexPath.section][indexPath.row].name
-            cell.imageView?.image = settings[indexPath.section][indexPath.row].icon
-            cell.detailTextLabel?.text = settings[indexPath.section][indexPath.row].description
-            cell.accessoryType = .disclosureIndicator
-
+            cell.configureCell(with: model)
             return cell
 
         case .withSwitch:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as! SwitchTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as? SwitchTableViewCell else {
+                return UITableViewCell()
+            }
 
-            cell.textLabel?.text = settings[indexPath.section][indexPath.row].name
-            cell.imageView?.image = settings[indexPath.section][indexPath.row].icon
-            cell.detailTextLabel?.text = settings[indexPath.section][indexPath.row].description
-
-            let onOfSwitch = UISwitch()
-            cell.accessoryView = onOfSwitch
-
+            cell.configureCell(with: model)
             return cell
 
         case .withBadge:
-            let cell = tableView.dequeueReusableCell(withIdentifier: BadgeTableViewCell.identifier, for: indexPath) as! BadgeTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BadgeTableViewCell.identifier, for: indexPath) as? BadgeTableViewCell else {
+                return UITableViewCell()
+            }
 
-            cell.textLabel?.text = settings[indexPath.section][indexPath.row].name
-            cell.imageView?.image = settings[indexPath.section][indexPath.row].icon
-            cell.badgeLabel.text = settings[indexPath.section][indexPath.row].badge
-            cell.accessoryType = .disclosureIndicator
-
+            cell.configureCell(with: model)
             return cell
 
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: DefaultTableViewCell.identifier, for: indexPath) as! DefaultTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DefaultTableViewCell.identifier, for: indexPath) as? DefaultTableViewCell else {
+                return UITableViewCell()
+            }
 
-            cell.textLabel?.text = settings[indexPath.section][indexPath.row].name
-            cell.imageView?.image = settings[indexPath.section][indexPath.row].icon
-            cell.detailTextLabel?.text = settings[indexPath.section][indexPath.row].description
-            cell.accessoryType = .disclosureIndicator
-
+            cell.configureCell(with: model)
             return cell
         }
     }
 }
 
-// MARK: - Расширение для увеличения высоты рядов, а также для реагирования на нажатия
+// MARK: - Delegate, обработка высоты рядов
 // Работает в паре с setupDelegate()
 
 extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let model = settingsModels[indexPath.section][indexPath.row]
         
-        if settings[indexPath.section][indexPath.row].type == .profile {
-            return 72
-        } else if settings[indexPath.section][indexPath.row].type == .withBadge {
-            return 44
+        if model.type == .profile {
+            return Metric.profileCellHeight
+        } else if model.type == .withBadge {
+            return Metric.badgeCellHeight
         }
-        // Use the default size for all other rows.
+
         return UITableView.automaticDimension
     }
+}
 
+// MARK: - Обработка нажатия на ячейку
+
+extension SettingsViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        CurrentCell.name = settings[indexPath.section][indexPath.row].name ?? "<не определена>"
+        let model = settingsModels[indexPath.section][indexPath.row]
+
+        CurrentCell.name = model.name ?? Strings.cellNotFound
 
         tableView.deselectRow(at: indexPath, animated: true)
-        print("Нажата ячейка \(CurrentCell.name)")
+        print("\(Strings.cellDidSelect) \(CurrentCell.name)")
 
         navigationController?.pushViewController(SettingsChildViewController(), animated: true)
     }
 }
 
 // MARK: - Current Cell
+
 extension SettingsViewController {
     enum CurrentCell {
         static var name: String = ""
@@ -174,8 +176,26 @@ extension SettingsViewController {
 }
 
 // MARK: - Search
+
 extension SettingsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         // TODO
+    }
+}
+
+// MARK: - Constants
+
+extension SettingsViewController {
+    enum Metric {
+        static let profileCellHeight: CGFloat = 72
+        static let badgeCellHeight: CGFloat = 44
+        static let sidePadding: CGFloat = 0
+    }
+
+    enum Strings {
+        static let searchBarPlaceholder = "Поиск"
+        static let navigationTitle = "Настройки"
+        static let cellNotFound = "<не определена>"
+        static let cellDidSelect = "Нажата ячейка"
     }
 }
