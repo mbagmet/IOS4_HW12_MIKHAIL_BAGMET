@@ -49,7 +49,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		796D0C592763B93A00712C13 /* SettingsTableViewCells */ = {
+		796D0C592763B93A00712C13 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				796D0C5A2763B99F00712C13 /* ProfileTableViewCell.swift */,
@@ -57,7 +57,7 @@
 				796D0C5E2763BA5800712C13 /* SwitchTableViewCell.swift */,
 				7962457D276DD09200AB9653 /* BadgeTableViewCell.swift */,
 			);
-			path = SettingsTableViewCells;
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		798CADF027626A6A00DFC96E = {
@@ -79,15 +79,9 @@
 		798CADFB27626A6A00DFC96E /* IOS4_HW12_MIKHAIL_BAGMET */ = {
 			isa = PBXGroup;
 			children = (
-				796D0C592763B93A00712C13 /* SettingsTableViewCells */,
-				798CAE1227628F8A00DFC96E /* Extensions */,
-				798CADFC27626A6A00DFC96E /* AppDelegate.swift */,
-				798CAE0527626A6D00DFC96E /* Assets.xcassets */,
-				798CAE0727626A6D00DFC96E /* LaunchScreen.storyboard */,
 				798CAE0A27626A6D00DFC96E /* Info.plist */,
-				798CAE102762860900DFC96E /* SettingsViewController.swift */,
-				798CAE172762A31800DFC96E /* SettingsData.swift */,
-				797E865C276D30C200C16990 /* SettingsChildViewController.swift */,
+				79926BBA277138F400EAC822 /* Sources */,
+				79926BB72771387000EAC822 /* Resources */,
 			);
 			path = IOS4_HW12_MIKHAIL_BAGMET;
 			sourceTree = "<group>";
@@ -99,6 +93,68 @@
 				798CAE152762924100DFC96E /* extensionUIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		79926BB72771387000EAC822 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				79926BB8277138B100EAC822 /* Storyboards */,
+				798CAE0527626A6D00DFC96E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		79926BB8277138B100EAC822 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				798CAE0727626A6D00DFC96E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		79926BBA277138F400EAC822 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				798CAE1227628F8A00DFC96E /* Extensions */,
+				79926BBC2771392E00EAC822 /* Settings */,
+				79926BBB2771390100EAC822 /* App */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		79926BBB2771390100EAC822 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				798CADFC27626A6A00DFC96E /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		79926BBC2771392E00EAC822 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				79926BBE277139DE00EAC822 /* Data */,
+				796D0C592763B93A00712C13 /* TableViewCells */,
+				79926BBD2771396F00EAC822 /* Controllers */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		79926BBD2771396F00EAC822 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				797E865C276D30C200C16990 /* SettingsChildViewController.swift */,
+				798CAE102762860900DFC96E /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		79926BBE277139DE00EAC822 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				798CAE172762A31800DFC96E /* SettingsData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
