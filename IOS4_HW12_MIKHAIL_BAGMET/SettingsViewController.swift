@@ -54,6 +54,7 @@ class SettingsViewController: UIViewController {
         settingsTableView.register(DefaultTableViewCell.self, forCellReuseIdentifier: DefaultTableViewCell.identifier)
         settingsTableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
         settingsTableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        settingsTableView.register(BadgeTableViewCell.self, forCellReuseIdentifier: BadgeTableViewCell.identifier)
     }
 
     // MARK: - Private functions
@@ -101,6 +102,16 @@ extension SettingsViewController: UITableViewDataSource {
 
             return cell
 
+        case .withBadge:
+            let cell = tableView.dequeueReusableCell(withIdentifier: BadgeTableViewCell.identifier, for: indexPath) as! BadgeTableViewCell
+
+            cell.textLabel?.text = settings[indexPath.section][indexPath.row].name
+            cell.imageView?.image = settings[indexPath.section][indexPath.row].icon
+            cell.badgeLabel.text = settings[indexPath.section][indexPath.row].badge
+            cell.accessoryType = .disclosureIndicator
+
+            return cell
+
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: DefaultTableViewCell.identifier, for: indexPath) as! DefaultTableViewCell
 
@@ -123,6 +134,8 @@ extension SettingsViewController: UITableViewDelegate {
         
         if settings[indexPath.section][indexPath.row].type == .profile {
             return 72
+        } else if settings[indexPath.section][indexPath.row].type == .withBadge {
+            return 44
         }
         // Use the default size for all other rows.
         return UITableView.automaticDimension

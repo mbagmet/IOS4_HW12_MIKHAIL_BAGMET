@@ -11,12 +11,13 @@ enum CellType {
     case profile
     case byDefault
     case withSwitch
+    case withBadge
 }
 
 struct Settings {
     let name: String?
     let icon: UIImage?
-    let badge: Int?
+    let badge: String?
     let description: String?
     let type: CellType?
 }
@@ -34,18 +35,18 @@ class SettingsData {
                 Settings(name: "Авиарежим", icon: UIImage(named: "airplane_mode"), badge: nil, description: nil, type: .withSwitch),
                 Settings(name: "Wi-Fi", icon: UIImage(named: "wifi"), badge: nil, description: "Не подключено", type: .byDefault),
                 Settings(name: "Bluetooth", icon: UIImage(named: "bluetooth"), badge: nil, description: "Вкл.", type: .byDefault), 
-                Settings(name: "Сотовая связь", icon: UIImage(named: "cellular"), badge: 1, description: nil, type: .byDefault),
+                Settings(name: "Сотовая связь", icon: UIImage(named: "cellular"), badge: nil, description: nil, type: .byDefault),
                 Settings(name: "Режим модема", icon: UIImage(named: "modem_mode"), badge: nil, description: "Выкл.", type: .byDefault),
                 Settings(name: "VPN", icon: UIImage(named: "vpn"), badge: nil, description: "Не подключено", type: .byDefault)
             ],
             [
                 Settings(name: "Уведомления", icon: UIImage(named: "notifications"), badge: nil, description: nil, type: .byDefault),
-                Settings(name: "Звуки, тактильные сигналы", icon: UIImage(named: "speaker"), badge: nil, description: nil, type: .byDefault),
+                Settings(name: "Звуки, тактильные сигналы", icon: UIImage(named: "speaker"), badge: "12", description: nil, type: .withBadge),
                 Settings(name: "Фокусирование", icon: UIImage(named: "moon"), badge: nil, description: nil, type: .byDefault),
                 Settings(name: "Экранное время", icon: UIImage(named: "hourglass"), badge: nil, description: nil, type: .byDefault),
             ],
             [
-                Settings(name: "Основные", icon: UIImage(named: "settings"), badge: 1, description: nil, type: .byDefault),
+                Settings(name: "Основные", icon: UIImage(named: "settings"), badge: "1", description: nil, type: .withBadge),
                 Settings(name: "Пункт управления", icon: UIImage(named: "switches"), badge: nil, description: nil, type: .byDefault),
                 Settings(name: "Экран и яркость", icon: UIImage(named: "screen"), badge: nil, description: nil, type: .byDefault),
                 Settings(name: "Экран Домой", icon: UIImage(named: "home_screen"), badge: nil, description: nil, type: .byDefault),
