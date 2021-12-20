@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7962457E276DD09200AB9653 /* BadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7962457D276DD09200AB9653 /* BadgeTableViewCell.swift */; };
 		796D0C5B2763B99F00712C13 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D0C5A2763B99F00712C13 /* ProfileTableViewCell.swift */; };
 		796D0C5D2763BA4400712C13 /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D0C5C2763BA4400712C13 /* DefaultTableViewCell.swift */; };
 		796D0C5F2763BA5800712C13 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D0C5E2763BA5800712C13 /* SwitchTableViewCell.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7962457D276DD09200AB9653 /* BadgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeTableViewCell.swift; sourceTree = "<group>"; };
 		796D0C5A2763B99F00712C13 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		796D0C5C2763BA4400712C13 /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
 		796D0C5E2763BA5800712C13 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 				796D0C5A2763B99F00712C13 /* ProfileTableViewCell.swift */,
 				796D0C5C2763BA4400712C13 /* DefaultTableViewCell.swift */,
 				796D0C5E2763BA5800712C13 /* SwitchTableViewCell.swift */,
+				7962457D276DD09200AB9653 /* BadgeTableViewCell.swift */,
 			);
 			path = SettingsTableViewCells;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				798CAE162762924100DFC96E /* extensionUIView.swift in Sources */,
 				798CAE182762A31800DFC96E /* SettingsData.swift in Sources */,
 				796D0C5B2763B99F00712C13 /* ProfileTableViewCell.swift in Sources */,
+				7962457E276DD09200AB9653 /* BadgeTableViewCell.swift in Sources */,
 				797E865D276D30C200C16990 /* SettingsChildViewController.swift in Sources */,
 				798CADFD27626A6A00DFC96E /* AppDelegate.swift in Sources */,
 				798CAE112762860900DFC96E /* SettingsViewController.swift in Sources */,
