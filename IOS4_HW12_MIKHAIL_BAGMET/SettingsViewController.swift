@@ -13,6 +13,14 @@ class SettingsViewController: UIViewController {
 
     private lazy var settingsTableView = UITableView(frame: view.bounds, style: UITableView.Style.insetGrouped)
 
+    private lazy var searchController: UISearchController = {
+        var searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Поиск"
+
+        return searchController
+    }()
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -23,6 +31,8 @@ class SettingsViewController: UIViewController {
         setupView()
 
         setupNavigation()
+
+        setupSeachController()
 
         setupDataSource()
         setupDelegate()
@@ -55,6 +65,11 @@ class SettingsViewController: UIViewController {
         settingsTableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
         settingsTableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
         settingsTableView.register(BadgeTableViewCell.self, forCellReuseIdentifier: BadgeTableViewCell.identifier)
+    }
+
+    private func setupSeachController() {
+        searchController.searchResultsUpdater = self
+        navigationItem.searchController = searchController
     }
 
     // MARK: - Private functions
@@ -155,5 +170,12 @@ extension SettingsViewController: UITableViewDelegate {
 extension SettingsViewController {
     enum CurrentCell {
         static var name: String = ""
+    }
+}
+
+// MARK: - Search
+extension SettingsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
     }
 }
