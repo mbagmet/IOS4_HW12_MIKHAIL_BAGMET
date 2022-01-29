@@ -11,14 +11,16 @@
 		796D0C5B2763B99F00712C13 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D0C5A2763B99F00712C13 /* ProfileTableViewCell.swift */; };
 		796D0C5D2763BA4400712C13 /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D0C5C2763BA4400712C13 /* DefaultTableViewCell.swift */; };
 		796D0C5F2763BA5800712C13 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D0C5E2763BA5800712C13 /* SwitchTableViewCell.swift */; };
-		797E865D276D30C200C16990 /* SettingsChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797E865C276D30C200C16990 /* SettingsChildViewController.swift */; };
+		797E865D276D30C200C16990 /* SettingsChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797E865C276D30C200C16990 /* SettingsChildController.swift */; };
+		79889B8A27A5488100D0DDD8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79889B8927A5488100D0DDD8 /* SettingsView.swift */; };
+		79889B8C27A5492700D0DDD8 /* SettingsChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79889B8B27A5492700D0DDD8 /* SettingsChildView.swift */; };
 		798CADFD27626A6A00DFC96E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CADFC27626A6A00DFC96E /* AppDelegate.swift */; };
 		798CAE0627626A6D00DFC96E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 798CAE0527626A6D00DFC96E /* Assets.xcassets */; };
 		798CAE0927626A6D00DFC96E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798CAE0727626A6D00DFC96E /* LaunchScreen.storyboard */; };
-		798CAE112762860900DFC96E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE102762860900DFC96E /* SettingsViewController.swift */; };
-		798CAE142762901800DFC96E /* extensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE132762901800DFC96E /* extensionUIColor.swift */; };
-		798CAE162762924100DFC96E /* extensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE152762924100DFC96E /* extensionUIView.swift */; };
-		798CAE182762A31800DFC96E /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE172762A31800DFC96E /* SettingsData.swift */; };
+		798CAE112762860900DFC96E /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE102762860900DFC96E /* SettingsController.swift */; };
+		798CAE142762901800DFC96E /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE132762901800DFC96E /* UIColor+Ext.swift */; };
+		798CAE162762924100DFC96E /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE152762924100DFC96E /* UIView+Ext.swift */; };
+		798CAE182762A31800DFC96E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE172762A31800DFC96E /* SettingsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,16 +28,18 @@
 		796D0C5A2763B99F00712C13 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		796D0C5C2763BA4400712C13 /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
 		796D0C5E2763BA5800712C13 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
-		797E865C276D30C200C16990 /* SettingsChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsChildViewController.swift; sourceTree = "<group>"; };
+		797E865C276D30C200C16990 /* SettingsChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsChildController.swift; sourceTree = "<group>"; };
+		79889B8927A5488100D0DDD8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		79889B8B27A5492700D0DDD8 /* SettingsChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsChildView.swift; sourceTree = "<group>"; };
 		798CADF927626A6A00DFC96E /* IOS4_HW12_MIKHAIL_BAGMET.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS4_HW12_MIKHAIL_BAGMET.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		798CADFC27626A6A00DFC96E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		798CAE0527626A6D00DFC96E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		798CAE0827626A6D00DFC96E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		798CAE0A27626A6D00DFC96E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		798CAE102762860900DFC96E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		798CAE132762901800DFC96E /* extensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIColor.swift; sourceTree = "<group>"; };
-		798CAE152762924100DFC96E /* extensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIView.swift; sourceTree = "<group>"; };
-		798CAE172762A31800DFC96E /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
+		798CAE102762860900DFC96E /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		798CAE132762901800DFC96E /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		798CAE152762924100DFC96E /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		798CAE172762A31800DFC96E /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,41 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		79889B8427A5455200D0DDD8 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				79926BBC2771392E00EAC822 /* Settings */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		79889B8627A5475600D0DDD8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				798CAE172762A31800DFC96E /* SettingsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		79889B8727A5475D00D0DDD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79889B8927A5488100D0DDD8 /* SettingsView.swift */,
+				796D0C592763B93A00712C13 /* TableViewCells */,
+				79889B8B27A5492700D0DDD8 /* SettingsChildView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		79889B8827A5476500D0DDD8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				798CAE102762860900DFC96E /* SettingsController.swift */,
+				797E865C276D30C200C16990 /* SettingsChildController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		798CADF027626A6A00DFC96E = {
 			isa = PBXGroup;
 			children = (
@@ -79,7 +118,6 @@
 		798CADFB27626A6A00DFC96E /* IOS4_HW12_MIKHAIL_BAGMET */ = {
 			isa = PBXGroup;
 			children = (
-				798CAE0A27626A6D00DFC96E /* Info.plist */,
 				79926BBA277138F400EAC822 /* Sources */,
 				79926BB72771387000EAC822 /* Resources */,
 			);
@@ -89,8 +127,8 @@
 		798CAE1227628F8A00DFC96E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				798CAE132762901800DFC96E /* extensionUIColor.swift */,
-				798CAE152762924100DFC96E /* extensionUIView.swift */,
+				798CAE132762901800DFC96E /* UIColor+Ext.swift */,
+				798CAE152762924100DFC96E /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -100,6 +138,7 @@
 			children = (
 				79926BB8277138B100EAC822 /* Storyboards */,
 				798CAE0527626A6D00DFC96E /* Assets.xcassets */,
+				798CAE0A27626A6D00DFC96E /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -115,9 +154,9 @@
 		79926BBA277138F400EAC822 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				798CAE1227628F8A00DFC96E /* Extensions */,
-				79926BBC2771392E00EAC822 /* Settings */,
 				79926BBB2771390100EAC822 /* App */,
+				79889B8427A5455200D0DDD8 /* Scenes */,
+				798CAE1227628F8A00DFC96E /* Extensions */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -133,28 +172,11 @@
 		79926BBC2771392E00EAC822 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				79926BBE277139DE00EAC822 /* Data */,
-				796D0C592763B93A00712C13 /* TableViewCells */,
-				79926BBD2771396F00EAC822 /* Controllers */,
+				79889B8827A5476500D0DDD8 /* Controller */,
+				79889B8727A5475D00D0DDD8 /* View */,
+				79889B8627A5475600D0DDD8 /* Model */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		79926BBD2771396F00EAC822 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				797E865C276D30C200C16990 /* SettingsChildViewController.swift */,
-				798CAE102762860900DFC96E /* SettingsViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		79926BBE277139DE00EAC822 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				798CAE172762A31800DFC96E /* SettingsData.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,16 +248,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				798CAE142762901800DFC96E /* extensionUIColor.swift in Sources */,
+				798CAE142762901800DFC96E /* UIColor+Ext.swift in Sources */,
 				796D0C5F2763BA5800712C13 /* SwitchTableViewCell.swift in Sources */,
-				798CAE162762924100DFC96E /* extensionUIView.swift in Sources */,
-				798CAE182762A31800DFC96E /* SettingsData.swift in Sources */,
+				798CAE162762924100DFC96E /* UIView+Ext.swift in Sources */,
+				798CAE182762A31800DFC96E /* SettingsModel.swift in Sources */,
 				796D0C5B2763B99F00712C13 /* ProfileTableViewCell.swift in Sources */,
 				7962457E276DD09200AB9653 /* BadgeTableViewCell.swift in Sources */,
-				797E865D276D30C200C16990 /* SettingsChildViewController.swift in Sources */,
+				79889B8C27A5492700D0DDD8 /* SettingsChildView.swift in Sources */,
+				797E865D276D30C200C16990 /* SettingsChildController.swift in Sources */,
 				798CADFD27626A6A00DFC96E /* AppDelegate.swift in Sources */,
-				798CAE112762860900DFC96E /* SettingsViewController.swift in Sources */,
+				798CAE112762860900DFC96E /* SettingsController.swift in Sources */,
 				796D0C5D2763BA4400712C13 /* DefaultTableViewCell.swift in Sources */,
+				79889B8A27A5488100D0DDD8 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +400,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XK82N983EZ;
-				INFOPLIST_FILE = IOS4_HW12_MIKHAIL_BAGMET/Info.plist;
+				INFOPLIST_FILE = IOS4_HW12_MIKHAIL_BAGMET/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -395,7 +419,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XK82N983EZ;
-				INFOPLIST_FILE = IOS4_HW12_MIKHAIL_BAGMET/Info.plist;
+				INFOPLIST_FILE = IOS4_HW12_MIKHAIL_BAGMET/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
