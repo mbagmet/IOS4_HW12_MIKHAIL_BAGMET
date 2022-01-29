@@ -1,5 +1,5 @@
 //
-//  SettingsData.swift
+//  SettingsModel.swift
 //  IOS4_HW12_MIKHAIL_BAGMET
 //
 //  Created by Михаил on 09.12.2021.
@@ -22,7 +22,7 @@ struct Settings {
     let type: CellType?
 }
 
-class SettingsData {
+final class SettingsModel {
     static func getSettingsList() -> [[Settings]] {
         let settings = [
             [

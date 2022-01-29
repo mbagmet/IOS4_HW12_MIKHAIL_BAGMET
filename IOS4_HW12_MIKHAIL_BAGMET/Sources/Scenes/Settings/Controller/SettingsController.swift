@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    private lazy var settingsModels = SettingsData.getSettingsList()
+    private lazy var model = SettingsModel.getSettingsList()
 
     private lazy var settingsTableView = UITableView(frame: view.bounds, style: UITableView.Style.insetGrouped)
 
@@ -87,16 +87,16 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return settingsModels.count
+        return model.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingsModels[section].count
+        return model[section].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let model = settingsModels[indexPath.section][indexPath.row]
+        let model = model[indexPath.section][indexPath.row]
 
         switch model.type {
         case .profile:
@@ -140,7 +140,7 @@ extension SettingsViewController: UITableViewDataSource {
 extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let model = settingsModels[indexPath.section][indexPath.row]
+        let model = model[indexPath.section][indexPath.row]
         
         if model.type == .profile {
             return Metric.profileCellHeight
@@ -156,7 +156,7 @@ extension SettingsViewController: UITableViewDelegate {
 
 extension SettingsViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = settingsModels[indexPath.section][indexPath.row]
+        let model = model[indexPath.section][indexPath.row]
 
         CurrentCell.name = model.name ?? Strings.cellNotFound
 
