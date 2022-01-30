@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsController: UIViewController {
 
-    lazy var model = SettingsModel.getSettingsList()
+    var model: SettingsModel?
 
     private var settingsView: SettingsView? {
         guard isViewLoaded else { return nil }
@@ -22,7 +22,11 @@ class SettingsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        model = SettingsModel()
         view = SettingsView()
+
+        setupNavigation()
+        configureView()
     }
 
     // MARK: - Private func
@@ -37,9 +41,11 @@ class SettingsController: UIViewController {
 
 extension SettingsController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = model[indexPath.section][indexPath.row]
+        guard let model = model?.getSettingsList() else { return }
 
-        CurrentCell.name = model.name ?? Strings.cellNotFound
+        let cell = model[indexPath.section][indexPath.row]
+
+        CurrentCell.name = cell.name ?? Strings.cellNotFound
 
         tableView.deselectRow(at: indexPath, animated: true)
         print("\(Strings.cellDidSelect) \(CurrentCell.name)")
@@ -61,6 +67,16 @@ extension SettingsController {
 extension SettingsController: UISearchResultsUpdating {
     func updateSearchResults(for search: UISearchController) {
         // TODO
+    }
+}
+
+// MARK: - Configuration
+
+private extension SettingsController {
+    /// Реализация метода для конфигурирования нашего View исходя из того, что нам создаст OnboardingModel
+    func configureView() {
+        guard let model = model?.getSettingsList() else { return }
+        settingsView?.configureView(with: model)
     }
 }
 

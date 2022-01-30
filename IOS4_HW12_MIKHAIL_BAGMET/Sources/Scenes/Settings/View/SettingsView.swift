@@ -11,9 +11,13 @@ class SettingsView: UIView {
 
     // MARK: - Configuration
 
-    func configureView(with model: SettingsModel) {
-        // TODO
+    func configureView(with model: [[Settings]]) {
+        self.model = model
     }
+
+    // MARK: - Private properties
+
+    private var model = [[Settings]]()
 
     // MARK: - Views
 
@@ -45,7 +49,6 @@ class SettingsView: UIView {
         setupView()
 
 //        setupSeach()
-        setupNavigation()
 
         setupDataSource()
         setupDelegate()

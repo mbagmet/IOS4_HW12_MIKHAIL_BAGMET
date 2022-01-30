@@ -11,6 +11,18 @@ class DefaultTableViewCell: UITableViewCell {
 
     static let identifier = "DefaultTableViewCell"
 
+    // MARK: - Configuration
+
+    public func configureCell(with model: Settings) {
+        textLabel?.text = model.name
+        detailTextLabel?.text = model.description
+
+        guard let icon = model.icon else { return }
+        imageView?.image = UIImage(named: icon)
+    }
+
+    // MARK: - Init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
 
@@ -28,14 +40,6 @@ class DefaultTableViewCell: UITableViewCell {
         imageView?.layer.cornerRadius = Metric.iconCornerRadius
 
         accessoryType = .disclosureIndicator
-    }
-
-    // MARK: - Configuration
-
-    public func configureCell(with model: Settings) {
-        textLabel?.text = model.name
-        imageView?.image = model.icon
-        detailTextLabel?.text = model.description
     }
 }
 

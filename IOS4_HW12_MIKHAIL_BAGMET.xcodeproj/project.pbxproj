@@ -21,6 +21,7 @@
 		798CAE142762901800DFC96E /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE132762901800DFC96E /* UIColor+Ext.swift */; };
 		798CAE162762924100DFC96E /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE152762924100DFC96E /* UIView+Ext.swift */; };
 		798CAE182762A31800DFC96E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE172762A31800DFC96E /* SettingsModel.swift */; };
+		799A127227A6A2F00000511F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A127127A6A2F00000511F /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		798CAE132762901800DFC96E /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		798CAE152762924100DFC96E /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		798CAE172762A31800DFC96E /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		799A127127A6A2F00000511F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		79889B8627A5475600D0DDD8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				799A127127A6A2F00000511F /* Settings.swift */,
 				798CAE172762A31800DFC96E /* SettingsModel.swift */,
 			);
 			path = Model;
@@ -250,6 +253,7 @@
 			files = (
 				798CAE142762901800DFC96E /* UIColor+Ext.swift in Sources */,
 				796D0C5F2763BA5800712C13 /* SwitchTableViewCell.swift in Sources */,
+				799A127227A6A2F00000511F /* Settings.swift in Sources */,
 				798CAE162762924100DFC96E /* UIView+Ext.swift in Sources */,
 				798CAE182762A31800DFC96E /* SettingsModel.swift in Sources */,
 				796D0C5B2763B99F00712C13 /* ProfileTableViewCell.swift in Sources */,

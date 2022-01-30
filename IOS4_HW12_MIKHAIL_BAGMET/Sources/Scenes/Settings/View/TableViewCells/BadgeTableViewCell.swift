@@ -11,6 +11,22 @@ class BadgeTableViewCell: UITableViewCell {
 
     static let identifier = "BadgeTableViewCell"
 
+    // MARK: - Configuration
+
+    public func configureCell(with model: Settings) {
+        textLabel?.text = model.name
+        detailTextLabel?.text = model.description
+
+        guard let icon = model.icon else { return }
+        imageView?.image = UIImage(named: icon)
+
+        badgeLabel.text = model.badge
+        Metric.digitsQty = CGFloat(model.badge?.count ?? 1)
+        setupBadgeWidth()
+    }
+
+    // MARK: - Private properties
+
     private lazy var badgeLabel: UILabel = {
         let badge = UILabel()
         badge.backgroundColor = .systemRed
@@ -21,6 +37,8 @@ class BadgeTableViewCell: UITableViewCell {
 
         return badge
     }()
+
+    // MARK: - Init
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
@@ -61,18 +79,6 @@ class BadgeTableViewCell: UITableViewCell {
         let badgeWidth = max(Metric.badgeHeight, Metric.badgeMultimplier * Metric.badgeHeight * Metric.digitsQty)
 
         badgeLabel.widthAnchor.constraint(equalToConstant: badgeWidth).isActive = true
-    }
-
-    // MARK: - Configuration
-
-    public func configureCell(with model: Settings) {
-        textLabel?.text = model.name
-        imageView?.image = model.icon
-        detailTextLabel?.text = model.description
-
-        badgeLabel.text = model.badge
-        Metric.digitsQty = CGFloat(model.badge?.count ?? 1)
-        setupBadgeWidth()
     }
 }
 
