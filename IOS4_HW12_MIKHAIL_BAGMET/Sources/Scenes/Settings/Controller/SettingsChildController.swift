@@ -28,7 +28,7 @@ class SettingsChildViewController: UIViewController {
 
     private func setupNavigation() {
         navigationItem.largeTitleDisplayMode = .never
-        title = SettingsViewController.CurrentCell.name
+        title = SettingsController.CurrentCell.name
     }
 
     //MARK: - Initializers
