@@ -11,6 +11,18 @@ class ProfileTableViewCell: UITableViewCell {
 
     static let identifier = "ProfileTableViewCell"
 
+    // MARK: - Configuration
+
+    public func configureCell(with model: Settings) {
+        textLabel?.text = model.name
+        detailTextLabel?.text = model.description
+
+        guard let icon = model.icon else { return }
+        imageView?.image = UIImage(systemName: icon, withConfiguration: Metric.iconConfiguration)
+    }
+
+    // MARK: - Init
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
@@ -37,14 +49,6 @@ class ProfileTableViewCell: UITableViewCell {
         imageView?.addConstraints(left: self.leadingAnchor, paddingLeft: 12)
 
         accessoryType = .disclosureIndicator
-    }
-
-    // MARK: - Configuration
-
-    public func configureCell(with model: Settings) {
-        textLabel?.text = model.name
-        imageView?.image = model.icon
-        detailTextLabel?.text = model.description
     }
 }
 

@@ -11,7 +11,28 @@ class SwitchTableViewCell: UITableViewCell {
 
     static let identifier = "SwitchTableViewCell"
 
+    // MARK: - Configuration
+
+    public func configureCell(with model: Settings) {
+        textLabel?.text = model.name
+        detailTextLabel?.text = model.description
+
+        guard let icon = model.icon else { return }
+        imageView?.image = UIImage(named: icon)
+
+        switch model.type {
+        case let .withSwitch(isOn):
+            onOfSwitch.isOn = isOn
+        default:
+            onOfSwitch.isOn = false
+        }
+    }
+
+    // MARK: - Private properties
+
     private lazy var onOfSwitch = UISwitch()
+
+    // MARK: - Init
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
@@ -30,20 +51,5 @@ class SwitchTableViewCell: UITableViewCell {
         imageView?.layer.cornerRadius = DefaultTableViewCell.Metric.iconCornerRadius
 
         accessoryView = onOfSwitch
-    }
-
-    // MARK: - Configuration
-
-    public func configureCell(with model: Settings) {
-        textLabel?.text = model.name
-        imageView?.image = model.icon
-        detailTextLabel?.text = model.description
-
-        switch model.type {
-        case let .withSwitch(isOn):
-            onOfSwitch.isOn = isOn
-        default:
-            onOfSwitch.isOn = false
-        }
     }
 }
