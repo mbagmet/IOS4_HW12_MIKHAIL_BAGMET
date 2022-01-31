@@ -20,21 +20,11 @@ class SettingsView: UIView, SettingsViewUserIterations {
 
     var delegate: SettingsViewDelegate?
 
-    // MARK: - Private properties
-
     private var model = [[Settings]]()
 
     // MARK: - Views
 
     private lazy var settingsTableView = UITableView(frame: self.bounds, style: UITableView.Style.insetGrouped)
-
-    private lazy var search: UISearchController = {
-        var search = UISearchController(searchResultsController: nil)
-        search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = Strings.searchBarPlaceholder
-
-        return search
-    }()
 
     // MARK: - Initial
 
@@ -52,8 +42,6 @@ class SettingsView: UIView, SettingsViewUserIterations {
         setupHierarchy()
         setupLayout()
         setupView()
-
-//        setupSeach()
 
         setupDataSource()
         setupDelegate()
@@ -89,11 +77,6 @@ class SettingsView: UIView, SettingsViewUserIterations {
         settingsTableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
         settingsTableView.register(BadgeTableViewCell.self, forCellReuseIdentifier: BadgeTableViewCell.identifier)
     }
-
-//    private func setupSeach() {
-//        search.searchResultsUpdater = SettingsController.self
-//        navigationItem.searchController = search
-//    }
 }
 
 // MARK: - Delegate, обработка высоты рядов
@@ -199,7 +182,6 @@ extension SettingsView {
     }
 
     enum Strings {
-        static let searchBarPlaceholder = "Поиск"
         static let cellNotFound = "<не определена>"
     }
 }
