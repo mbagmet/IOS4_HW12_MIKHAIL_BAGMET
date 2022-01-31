@@ -72,7 +72,7 @@ extension SettingsController: SettingsViewDelegate {
     func changeViewController(cellName: String) {
         
         print("\(Strings.cellDidSelect) \(cellName)")
-        navigationController?.pushViewController(SettingsChildViewController(), animated: true)
+        navigationController?.pushViewController(SettingsChildController(), animated: true)
     }
 }
 

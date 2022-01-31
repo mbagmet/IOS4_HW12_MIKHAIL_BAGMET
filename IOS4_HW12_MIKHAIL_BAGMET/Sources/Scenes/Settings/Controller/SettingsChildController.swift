@@ -1,5 +1,5 @@
 //
-//  SettingsChildViewController.swift
+//  SettingsChildController.swift
 //  IOS4_HW12_MIKHAIL_BAGMET
 //
 //  Created by Михаил on 17.12.2021.
@@ -7,31 +7,33 @@
 
 import UIKit
 
-class SettingsChildViewController: UIViewController {
+class SettingsChildController: UIViewController {
 
-    private lazy var settingsTableView = UITableView(frame: view.bounds, style: UITableView.Style.insetGrouped)
+    // MARK: - Properties
+
+    private var settingsView: SettingsChildView? {
+        guard isViewLoaded else { return nil }
+        return view as? SettingsChildView
+    }
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupView()
+        view = SettingsChildView()
+
         setupNavigation()
     }
 
     // MARK: - Settings
-
-    private func setupView() {
-        view.backgroundColor = .secondarySystemBackground | .systemBackground
-    }
 
     private func setupNavigation() {
         navigationItem.largeTitleDisplayMode = .never
         title = SettingsView.CurrentCell.name
     }
 
-    //MARK: - Initializers
+    // MARK: - Initializers
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
