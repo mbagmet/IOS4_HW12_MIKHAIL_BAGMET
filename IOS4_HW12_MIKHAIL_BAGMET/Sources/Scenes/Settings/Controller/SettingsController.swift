@@ -26,7 +26,9 @@ class SettingsController: UIViewController {
         view = SettingsView()
 
         setupNavigation()
+
         configureView()
+        configureViewDelegate()
     }
 
     // MARK: - Private func
@@ -34,31 +36,6 @@ class SettingsController: UIViewController {
     private func setupNavigation() {
         navigationItem.title = Strings.navigationTitle
         self.navigationController?.navigationBar.prefersLargeTitles = true
-    }
-}
-
-// MARK: - Обработка нажатия на ячейку
-
-extension SettingsController {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let model = model?.getSettingsList() else { return }
-
-        let cell = model[indexPath.section][indexPath.row]
-
-        CurrentCell.name = cell.name ?? Strings.cellNotFound
-
-        tableView.deselectRow(at: indexPath, animated: true)
-        print("\(Strings.cellDidSelect) \(CurrentCell.name)")
-
-        navigationController?.pushViewController(SettingsChildViewController(), animated: true)
-    }
-}
-
-// MARK: - Current Cell
-
-extension SettingsController {
-    enum CurrentCell {
-        static var name: String = ""
     }
 }
 
@@ -70,13 +47,26 @@ extension SettingsController: UISearchResultsUpdating {
     }
 }
 
+// MARK: - SettingsViewDelegate
+
+extension SettingsController: SettingsViewDelegate {
+    func changeViewController(cellName: String) {
+        
+        print("\(Strings.cellDidSelect) \(cellName)")
+        navigationController?.pushViewController(SettingsChildViewController(), animated: true)
+    }
+}
+
 // MARK: - Configuration
 
 private extension SettingsController {
-    /// Реализация метода для конфигурирования нашего View исходя из того, что нам создаст OnboardingModel
     func configureView() {
         guard let model = model?.getSettingsList() else { return }
         settingsView?.configureView(with: model)
+    }
+
+    func configureViewDelegate() {
+        settingsView?.delegate = self
     }
 }
 
@@ -86,7 +76,6 @@ extension SettingsController {
     enum Strings {
 //        static let searchBarPlaceholder = "Поиск"
         static let navigationTitle = "Настройки"
-        static let cellNotFound = "<не определена>"
         static let cellDidSelect = "Нажата ячейка"
     }
 }
