@@ -7,13 +7,18 @@
 
 import UIKit
 
-class SettingsView: UIView {
+class SettingsView: UIView, SettingsViewUserIterations {
 
     // MARK: - Configuration
 
     func configureView(with model: [[Settings]]) {
         self.model = model
+        settingsTableView.reloadData()
     }
+
+    // MARK: - Properies
+
+    var delegate: SettingsViewDelegate?
 
     // MARK: - Private properties
 
@@ -162,6 +167,28 @@ extension SettingsView: UITableViewDataSource {
     }
 }
 
+// MARK: - Обработка нажатия на ячейку
+
+extension SettingsView {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let cell = model[indexPath.section][indexPath.row]
+
+        CurrentCell.name = cell.name ?? Strings.cellNotFound
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        delegate?.changeViewController(cellName: CurrentCell.name)
+    }
+}
+
+// MARK: - Current Cell
+
+extension SettingsView {
+    enum CurrentCell {
+        static var name: String = ""
+    }
+}
+
 // MARK: - Constants
 
 extension SettingsView {
@@ -173,5 +200,6 @@ extension SettingsView {
 
     enum Strings {
         static let searchBarPlaceholder = "Поиск"
+        static let cellNotFound = "<не определена>"
     }
 }

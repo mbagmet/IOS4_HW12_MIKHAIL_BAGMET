@@ -22,6 +22,8 @@
 		798CAE162762924100DFC96E /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE152762924100DFC96E /* UIView+Ext.swift */; };
 		798CAE182762A31800DFC96E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CAE172762A31800DFC96E /* SettingsModel.swift */; };
 		799A127227A6A2F00000511F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A127127A6A2F00000511F /* Settings.swift */; };
+		799A127527A6BC270000511F /* SettingsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A127427A6BC270000511F /* SettingsViewDelegate.swift */; };
+		79A9898727A848430094739C /* SettingsViewUserIterations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A9898627A848430094739C /* SettingsViewUserIterations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		798CAE152762924100DFC96E /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		798CAE172762A31800DFC96E /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		799A127127A6A2F00000511F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		799A127427A6BC270000511F /* SettingsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewDelegate.swift; sourceTree = "<group>"; };
+		79A9898627A848430094739C /* SettingsViewUserIterations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewUserIterations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				79889B8927A5488100D0DDD8 /* SettingsView.swift */,
+				799A127327A6BC190000511F /* Protocols */,
 				796D0C592763B93A00712C13 /* TableViewCells */,
 				79889B8B27A5492700D0DDD8 /* SettingsChildView.swift */,
 			);
@@ -98,6 +103,7 @@
 			children = (
 				798CAE102762860900DFC96E /* SettingsController.swift */,
 				797E865C276D30C200C16990 /* SettingsChildController.swift */,
+				79A9898527A8411E0094739C /* Protocols */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -182,6 +188,22 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		799A127327A6BC190000511F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				79A9898627A848430094739C /* SettingsViewUserIterations.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		79A9898527A8411E0094739C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				799A127427A6BC270000511F /* SettingsViewDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,7 +282,9 @@
 				7962457E276DD09200AB9653 /* BadgeTableViewCell.swift in Sources */,
 				79889B8C27A5492700D0DDD8 /* SettingsChildView.swift in Sources */,
 				797E865D276D30C200C16990 /* SettingsChildController.swift in Sources */,
+				799A127527A6BC270000511F /* SettingsViewDelegate.swift in Sources */,
 				798CADFD27626A6A00DFC96E /* AppDelegate.swift in Sources */,
+				79A9898727A848430094739C /* SettingsViewUserIterations.swift in Sources */,
 				798CAE112762860900DFC96E /* SettingsController.swift in Sources */,
 				796D0C5D2763BA4400712C13 /* DefaultTableViewCell.swift in Sources */,
 				79889B8A27A5488100D0DDD8 /* SettingsView.swift in Sources */,
