@@ -1,56 +1,66 @@
 //
-//  SettingsViewController.swift
+//  SettingsView.swift
 //  IOS4_HW12_MIKHAIL_BAGMET
 //
-//  Created by Михаил on 09.12.2021.
+//  Created by Михаил on 29.01.2022.
 //
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsView: UIView, SettingsViewUserIterations, SettingsViewModelInstance {
 
-    private lazy var settingsModels = SettingsData.getSettingsList()
+    // MARK: - Configuration
 
-    private lazy var settingsTableView = UITableView(frame: view.bounds, style: UITableView.Style.insetGrouped)
+    func configureView(with model: [[Settings]]) {
+        self.model = model
+        settingsTableView.reloadData()
+    }
 
-    private lazy var searchController: UISearchController = {
-        var searchController = UISearchController(searchResultsController: nil)
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = Strings.searchBarPlaceholder
+    // MARK: - Properies
 
-        return searchController
-    }()
+    var delegate: SettingsViewDelegate?
 
-    // MARK: - Lifecycle
+    var model = [[Settings]]()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - Views
 
+    private lazy var settingsTableView = UITableView(frame: self.bounds, style: UITableView.Style.insetGrouped)
+
+    // MARK: - Initial
+
+    init() {
+        super.init(frame: .zero)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+
+    private func commonInit() {
         setupHierarchy()
         setupLayout()
         setupView()
-
-        setupNavigation()
-
-        setupSeachController()
 
         setupDataSource()
         setupDelegate()
         setupTableCells()
     }
-    
+
     // MARK: - Settings
+
     private func setupHierarchy() {
-        view.addSubview(settingsTableView)
+        self.addSubview(settingsTableView)
     }
 
     private func setupLayout() {
-        settingsTableView.addConstraints(top: view.topAnchor, left: view.leadingAnchor, paddingLeft: Metric.sidePadding,
-                                         right: view.trailingAnchor, paddingRight: Metric.sidePadding, bottom: view.bottomAnchor)
+        settingsTableView.addConstraints(top: self.topAnchor, left: self.leadingAnchor, paddingLeft: Metric.sidePadding,
+                                         right: self.trailingAnchor, paddingRight: Metric.sidePadding, bottom: self.bottomAnchor)
     }
 
     private func setupView() {
-        view.backgroundColor = .secondarySystemBackground | .systemBackground
+        self.backgroundColor = .secondarySystemBackground | .systemBackground
     }
 
     private func setupDataSource() {
@@ -67,36 +77,42 @@ class SettingsViewController: UIViewController {
         settingsTableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
         settingsTableView.register(BadgeTableViewCell.self, forCellReuseIdentifier: BadgeTableViewCell.identifier)
     }
+}
 
-    private func setupSeachController() {
-        searchController.searchResultsUpdater = self
-        navigationItem.searchController = searchController
-    }
+// MARK: - Delegate, обработка высоты рядов
+// Работает в паре с setupDelegate()
 
-    // MARK: - Private functions
+extension SettingsView: UITableViewDelegate {
 
-    private func setupNavigation() {
-        navigationItem.title = Strings.navigationTitle
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let model = model[indexPath.section][indexPath.row]
+
+        if model.type == .profile {
+            return Metric.profileCellHeight
+        } else if model.type == .withBadge {
+            return Metric.badgeCellHeight
+        }
+
+        return UITableView.automaticDimension
     }
 }
 
 // MARK: - Data source, модель ячейки
 // Работает в паре с setupDataSource()
 
-extension SettingsViewController: UITableViewDataSource {
+extension SettingsView: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return settingsModels.count
+        return model.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingsModels[section].count
+        return model[section].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let model = settingsModels[indexPath.section][indexPath.row]
+        let model = model[indexPath.section][indexPath.row]
 
         switch model.type {
         case .profile:
@@ -134,58 +150,31 @@ extension SettingsViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Delegate, обработка высоты рядов
-// Работает в паре с setupDelegate()
-
-extension SettingsViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let model = settingsModels[indexPath.section][indexPath.row]
-        
-        if model.type == .profile {
-            return Metric.profileCellHeight
-        } else if model.type == .withBadge {
-            return Metric.badgeCellHeight
-        }
-
-        return UITableView.automaticDimension
-    }
-}
-
 // MARK: - Обработка нажатия на ячейку
 
-extension SettingsViewController {
+extension SettingsView {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = settingsModels[indexPath.section][indexPath.row]
 
-        CurrentCell.name = model.name ?? Strings.cellNotFound
+        let cell = model[indexPath.section][indexPath.row]
 
+        CurrentCell.name = cell.name ?? Strings.cellNotFound
         tableView.deselectRow(at: indexPath, animated: true)
-        print("\(Strings.cellDidSelect) \(CurrentCell.name)")
 
-        navigationController?.pushViewController(SettingsChildViewController(), animated: true)
+        delegate?.changeViewController(cellName: CurrentCell.name)
     }
 }
 
 // MARK: - Current Cell
 
-extension SettingsViewController {
+extension SettingsView {
     enum CurrentCell {
         static var name: String = ""
     }
 }
 
-// MARK: - Search
-
-extension SettingsViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO
-    }
-}
-
 // MARK: - Constants
 
-extension SettingsViewController {
+extension SettingsView {
     enum Metric {
         static let profileCellHeight: CGFloat = 72
         static let badgeCellHeight: CGFloat = 44
@@ -193,9 +182,6 @@ extension SettingsViewController {
     }
 
     enum Strings {
-        static let searchBarPlaceholder = "Поиск"
-        static let navigationTitle = "Настройки"
         static let cellNotFound = "<не определена>"
-        static let cellDidSelect = "Нажата ячейка"
     }
 }
