@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsView: UIView, SettingsViewUserIterations {
+class SettingsView: UIView, SettingsViewUserIterations, SettingsViewModelInstance {
 
     // MARK: - Configuration
 
@@ -20,7 +20,7 @@ class SettingsView: UIView, SettingsViewUserIterations {
 
     var delegate: SettingsViewDelegate?
 
-    private var model = [[Settings]]()
+    var model = [[Settings]]()
 
     // MARK: - Views
 

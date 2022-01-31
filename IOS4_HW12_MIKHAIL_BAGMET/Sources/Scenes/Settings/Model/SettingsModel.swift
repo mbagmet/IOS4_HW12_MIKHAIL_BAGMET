@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class SettingsModel {
+final class SettingsModel: SettingsModelProtocol {
     func getSettingsList() -> [[Settings]] {
         let settings = [
             [
