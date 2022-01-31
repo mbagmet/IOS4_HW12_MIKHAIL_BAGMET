@@ -78,12 +78,14 @@ extension SettingsController: SettingsViewDelegate {
 
 // MARK: - Configuration
 
-private extension SettingsController {
+extension SettingsController: SettingsModelDelegate {
     func configureView() {
         guard let model = model?.getSettingsList() else { return }
         settingsView?.configureView(with: model)
     }
+}
 
+private extension SettingsController {
     func configureViewDelegate() {
         settingsView?.delegate = self
     }

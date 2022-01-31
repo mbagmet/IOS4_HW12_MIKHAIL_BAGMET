@@ -24,6 +24,9 @@
 		799A127227A6A2F00000511F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A127127A6A2F00000511F /* Settings.swift */; };
 		799A127527A6BC270000511F /* SettingsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A127427A6BC270000511F /* SettingsViewDelegate.swift */; };
 		79A9898727A848430094739C /* SettingsViewUserIterations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A9898627A848430094739C /* SettingsViewUserIterations.swift */; };
+		79A9898A27A854C30094739C /* SettingsModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A9898927A854C30094739C /* SettingsModelDelegate.swift */; };
+		79A9898C27A856070094739C /* SettingsModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A9898B27A856070094739C /* SettingsModelProtocol.swift */; };
+		79A9898E27A856F00094739C /* SettingsViewModelInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A9898D27A856F00094739C /* SettingsViewModelInstance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		799A127127A6A2F00000511F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		799A127427A6BC270000511F /* SettingsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewDelegate.swift; sourceTree = "<group>"; };
 		79A9898627A848430094739C /* SettingsViewUserIterations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewUserIterations.swift; sourceTree = "<group>"; };
+		79A9898927A854C30094739C /* SettingsModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModelDelegate.swift; sourceTree = "<group>"; };
+		79A9898B27A856070094739C /* SettingsModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModelProtocol.swift; sourceTree = "<group>"; };
+		79A9898D27A856F00094739C /* SettingsViewModelInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelInstance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 			children = (
 				799A127127A6A2F00000511F /* Settings.swift */,
 				798CAE172762A31800DFC96E /* SettingsModel.swift */,
+				79A9898827A854960094739C /* Protocols */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				79A9898627A848430094739C /* SettingsViewUserIterations.swift */,
+				79A9898D27A856F00094739C /* SettingsViewModelInstance.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -200,6 +208,15 @@
 			isa = PBXGroup;
 			children = (
 				799A127427A6BC270000511F /* SettingsViewDelegate.swift */,
+				79A9898927A854C30094739C /* SettingsModelDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		79A9898827A854960094739C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				79A9898B27A856070094739C /* SettingsModelProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -276,9 +293,12 @@
 				798CAE142762901800DFC96E /* UIColor+Ext.swift in Sources */,
 				796D0C5F2763BA5800712C13 /* SwitchTableViewCell.swift in Sources */,
 				799A127227A6A2F00000511F /* Settings.swift in Sources */,
+				79A9898C27A856070094739C /* SettingsModelProtocol.swift in Sources */,
+				79A9898A27A854C30094739C /* SettingsModelDelegate.swift in Sources */,
 				798CAE162762924100DFC96E /* UIView+Ext.swift in Sources */,
 				798CAE182762A31800DFC96E /* SettingsModel.swift in Sources */,
 				796D0C5B2763B99F00712C13 /* ProfileTableViewCell.swift in Sources */,
+				79A9898E27A856F00094739C /* SettingsViewModelInstance.swift in Sources */,
 				7962457E276DD09200AB9653 /* BadgeTableViewCell.swift in Sources */,
 				79889B8C27A5492700D0DDD8 /* SettingsChildView.swift in Sources */,
 				797E865D276D30C200C16990 /* SettingsChildController.swift in Sources */,
