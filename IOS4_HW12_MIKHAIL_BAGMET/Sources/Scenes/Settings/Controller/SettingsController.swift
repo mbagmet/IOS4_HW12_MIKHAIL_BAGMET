@@ -9,6 +9,8 @@ import UIKit
 
 class SettingsController: UIViewController {
 
+    // MARK: = Properties
+
     var model: SettingsModel?
 
     private var settingsView: SettingsView? {
@@ -16,7 +18,14 @@ class SettingsController: UIViewController {
         return view as? SettingsView
     }
 
-    
+    private lazy var searchController: UISearchController = {
+        var search = UISearchController(searchResultsController: nil)
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = Strings.searchBarPlaceholder
+
+        return search
+    }()
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -26,13 +35,16 @@ class SettingsController: UIViewController {
         view = SettingsView()
 
         setupNavigation()
+        setupSeach()
 
         configureView()
         configureViewDelegate()
     }
+}
 
-    // MARK: - Private func
+// MARK: - Navigation
 
+extension SettingsController {
     private func setupNavigation() {
         navigationItem.title = Strings.navigationTitle
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -40,6 +52,13 @@ class SettingsController: UIViewController {
 }
 
 // MARK: - Search
+
+extension SettingsController {
+    private func setupSeach() {
+        searchController.searchResultsUpdater = self
+        navigationItem.searchController = searchController
+    }
+}
 
 extension SettingsController: UISearchResultsUpdating {
     func updateSearchResults(for search: UISearchController) {
@@ -74,7 +93,7 @@ private extension SettingsController {
 
 extension SettingsController {
     enum Strings {
-//        static let searchBarPlaceholder = "Поиск"
+        static let searchBarPlaceholder = "Поиск"
         static let navigationTitle = "Настройки"
         static let cellDidSelect = "Нажата ячейка"
     }
